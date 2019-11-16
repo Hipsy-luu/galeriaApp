@@ -1,0 +1,44 @@
+[2019-11-01T18:11:20.594] [INFO] server.js - Server running on port 4000 ...
+[2019-11-01T18:11:20.623] [INFO] server.js - Database connection is successful
+[2019-11-01T18:11:20.676] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:14:09.838] [INFO] server.js - Server running on port 4000 ...
+[2019-11-01T18:14:09.869] [INFO] server.js - Database connection is successful
+[2019-11-01T18:14:12.373] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:14:19.794] [DEBUG] server.js - Todo #81 successfully added 
+[2019-11-01T18:14:23.568] [DEBUG] server.js - Todos search success
+[2019-11-01T18:16:59.543] [INFO] server.js - Server running on port 4000 ...
+[2019-11-01T18:16:59.604] [INFO] server.js - Database connection is successful
+[2019-11-01T18:17:00.588] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:17:03.936] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:17:04.062] [DEBUG] server.js - Todos search success
+[2019-11-01T18:17:36.159] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:17:36.266] [DEBUG] server.js - Todos search success
+[2019-11-01T18:20:21.042] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:20:21.138] [DEBUG] server.js - Todos search success
+[2019-11-01T18:21:34.097] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:21:34.325] [DEBUG] server.js - Todos search success
+[2019-11-01T18:22:12.050] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-01T18:22:12.287] [DEBUG] server.js - Todos search success
+[2019-11-04T15:21:10.456] [INFO] server.js - Server running on port 4000 ...
+[2019-11-04T15:21:10.527] [INFO] server.js - Database connection is successful
+[2019-11-04T15:34:23.565] [DEBUG] server.js - Alguien se ha conectado con Sockets
+[2019-11-04T15:34:23.688] [DEBUG] server.js - Todos search success
+[2019-11-04T15:44:21.353] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:26.960] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:28.353] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:31.820] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:33.611] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:35.691] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:36.730] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:37.277] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:37.707] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:38.019] [DEBUG] server.js - Todos historic  search success
+[2019-11-04T15:44:39.846] [DEBUG] server.js - Todos search success
+[2019-11-04T15:44:44.310] [DEBUG] server.js - Todo #58 successfully deleted 
+[2019-11-04T15:44:46.746] [DEBUG] server.js - Todos search success
+[2019-11-04T15:45:06.648] [DEBUG] server.js - Todo #59  description changing from "" to "prueb"
+[2019-11-04T15:45:09.211] [DEBUG] server.js - Todos search success
+[2019-11-04T18:00:09.376] [INFO] server.js - Server running on port 4000 ...
+[2019-11-04T18:00:09.421] [INFO] server.js - Database connection is successful
+[2019-11-16T13:23:53.686] [INFO] server.js - Server running on port 4000 ...
+[2019-11-16T13:23:53.737] [INFO] server.js - Database connection is successful
