@@ -5,7 +5,7 @@ const transSchema = mongoose.Schema({
     type: Number
   },
   dateacquired: {
-    type: Date
+    type: String
   },
   acquisitionprice: {
     type: Number
