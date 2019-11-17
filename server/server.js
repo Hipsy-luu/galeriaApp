@@ -29,45 +29,17 @@ app.use(cors());
 var port = process.env.PORT || 4000 ;
 
 
-//Schemas para el manejo de las colecciones
-const Artist = require('./models/artist.schema');
-//Ayuda para controlar el valor del index aunque no era requerido
-const indexController = require('./utils/indexes');
-//Controlador para enviar la respuesta del servidor
-const responsesController = require('./utils/ServerResponse')
-
-//Rutas
-var router = express.Router();
-
-//Creating a Todo: Express.js POST Route Example
-
-//Ejemplo del Trigger simulado para mongo (Hacer para todas las colecciones 
-//en los id importados Cuidado con el numero de id que va realmente en la coleccion  )
-router.route('/create').post((req, res) => {
-    //Obteniendo el artistid actual de los artistas
-    indexController.getActualIndex(0)
-    .then((actualIndex) => {
-        //Este es el id para el nuevo elemento en la coleccion de artistas
-        req.body.artistid = actualIndex.current_id;
-        var todo = new Artist(req.body);
-        todo.save()
-        .then(todo => {
-            const messageResponse = responsesController.returnSuccessMessage(response,todo);
-            logger.debug(messageResponse.message);
-            res.status(200).json(messageResponse);
-        })
-        .catch(err => {
-            const messageResponse = responsesController.returnErrorMessage(
-                err.errors.type.message,{});
-            logger.error(messageResponse.message);
-            res.status(400).send(messageResponse);
-        });
-    });
-    
-});
+const artistsRouter = require('./routes/artists');
+const customerRouter = require('./routes/customer');
+const transRouter = require('./routes/trans');
+const workRouter = require('./routes/work');
 
 
-app.use('/', router);
+app.use('/artists', artistsRouter);
+app.use('/customers', customerRouter);
+app.use('/transactions', transRouter);
+app.use('/works', workRouter);
+
 
 //Metodo para lanzar la app por el puerto
 server.listen(serverConf.port, () => {

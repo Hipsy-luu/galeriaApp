@@ -24,6 +24,10 @@ const transSchema = mongoose.Schema({
   },
   workid: {
     type: Number
+  },
+  deleted: {
+    type: Boolean,
+    default: false
   }
 });
 

@@ -37,6 +37,10 @@ const customerSchema = mongoose.Schema({
   phonenumber: {
     type: String
   },
+  deleted: {
+    type: Boolean,
+    default: false
+  }
 });
 
 

@@ -18,6 +18,10 @@ const artistSchema = mongoose.Schema({
       },
       datedeceased: {
         type: Number
+      },
+      deleted: {
+        type: Boolean,
+        default: false
       }
 });
 

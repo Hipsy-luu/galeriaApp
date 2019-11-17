@@ -18,6 +18,10 @@ const workSchema = mongoose.Schema({
   },
   artistid: {
     type: Number
+  },
+  deleted: {
+    type: Boolean,
+    default: false
   }
 });
 
