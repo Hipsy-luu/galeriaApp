@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Historial de Transacciones
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-label>Historial :</ion-label>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-col>Id</ion-col>
+                <ion-col>Adquirido el :</ion-col>
+                <ion-col>Precio de Compra :</ion-col>
+                <ion-col>Precio de preventa :</ion-col>
+                <ion-col>Vendido el :</ion-col>
+                <ion-col>Precio de Venta</ion-col>
+                <ion-col>Id Comprador</ion-col>
+                <ion-col>Id Obra</ion-col>
+              </ion-row>
+              <ion-row *ngFor="let transaction of connectionService.dumyData.trans">
+                <ion-col>{{transaction.transactionid}}</ion-col>
+                <ion-col>{{transaction.dateacquired}}</ion-col>
+                <ion-col>{{transaction.acquisitionprice}}</ion-col>
+                <ion-col>{{transaction.askingprice}}</ion-col>
+                <ion-col>{{transaction.datesold}}</ion-col>
+                <ion-col>{{transaction.salesprice}}</ion-col>
+                <ion-col>{{transaction.customerid}}</ion-col>
+                <ion-col>{{transaction.workid}}</ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-content>

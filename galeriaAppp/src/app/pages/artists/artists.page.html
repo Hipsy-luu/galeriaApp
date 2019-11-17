@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Artistas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-row>
+                <ion-col size="6">
+                  <ion-label *ngIf="connectionService.opc.toString()=='0'">Creando un nuevo artista</ion-label>
+                  <ion-label *ngIf="connectionService.opc.toString()=='1'">Editando el artista con Id : {{connectionService.actualSelectedArtist.artistid}}</ion-label>
+                </ion-col>
+              </ion-row>
+
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="6">
+                  <ion-item>
+                    <ion-label>Apellido : </ion-label>
+                    <ion-input [(ngModel)]="connectionService.actualSelectedArtist.lastname"  type="text" placeholder="Awesome Input"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-item>
+                    <ion-label>Nombre : </ion-label>
+                    <ion-input [(ngModel)]="connectionService.actualSelectedArtist.firstname"  type="text" placeholder="Awesome Input"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="4">
+                  <ion-list>
+                    <ion-item>
+                      <ion-label>Nacionalidad : </ion-label>
+                      <ion-select [(ngModel)]="connectionService.actualSelectedArtist.nationality"  value="Mexican" okText="Okay" cancelText="Cancelar">
+                        <ion-select-option value="Canadian">Canadian</ion-select-option>
+                        <ion-select-option value="English">English</ion-select-option>
+                        <ion-select-option value="French">French</ion-select-option>
+                        <ion-select-option value="German">German</ion-select-option>
+                        <ion-select-option selected value="Mexican">Mexican</ion-select-option>
+                        <ion-select-option value="Russian">Russian</ion-select-option>
+                        <ion-select-option value="Spanish">Spanish</ion-select-option>
+                        <ion-select-option value="United States">United States</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-item>
+                    <ion-label>Fecha de Nacimiento : </ion-label>
+                    <ion-input [(ngModel)]="connectionService.actualSelectedArtist.dateofbirth"  type="number" placeholder="Awesome Input"></ion-input>
+                  </ion-item>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-item>
+                    <ion-label>Año de Fallecimiento : </ion-label>
+                    <ion-input [(ngModel)]="connectionService.actualSelectedArtist.datedeceased"  type="number" placeholder="Awesome Input"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col  size="4">
+                  <ion-button>
+                    Guardar
+                  </ion-button>
+                </ion-col>
+                <ion-col *ngIf="connectionService.opc.toString()=='1'"  size="4">
+                  <ion-button>
+                    Eliminar
+                  </ion-button>
+                </ion-col>
+                <ion-col *ngIf="connectionService.opc.toString()=='1'"  size="4">
+                  <ion-button (click)="connectionService.initializeSelectedItems(0)" >
+                    Cancelar
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <ion-row>
+              <ion-col>Id</ion-col>
+              <ion-col>Apellido</ion-col>
+              <ion-col>Nombre</ion-col>
+              <ion-col>Nacionalidad</ion-col>
+              <ion-col>Año Nacimiento</ion-col>
+              <ion-col>Año Muerte</ion-col>
+              <ion-col>Acciones</ion-col>
+            </ion-row>
+            <ion-row *ngFor="let artist of connectionService.dumyData.artists">
+              <ion-col>{{artist.artistid}}</ion-col>
+              <ion-col>{{artist.lastname}}</ion-col>
+              <ion-col>{{artist.firstname}}</ion-col>
+              <ion-col>{{artist.nationality}}</ion-col>
+              <ion-col>{{artist.dateofbirth}}</ion-col>
+              <ion-col>{{artist.datedeceased}}</ion-col>
+              <ion-col><button (click)="onSelected(artist)">Editar</button></ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
