@@ -8,6 +8,7 @@ var server = require('http').Server(app);
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
+var cors = require('cors')
 //Se importa el logger 
 const logger = require('./utils/logger');
 
@@ -19,7 +20,7 @@ mongoose.connect("mongodb://localhost:27017/galeria"/*, { autoIndex: false }*/).
     err => { logger.error('Error when connecting to the database' + err) }
 );
 
-
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 //Le indicamos que las respuestas se deben de mandar en formato JSON
 app.use(bodyParser.json());

@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "A Vue with Node and Express back end Project",
     "scripts": {
-        "start" : "node server.js"
+        "start": "node server.js"
     },
     "author": "Luismiguel Ortiz Alvarez",
     "license": "MIT",
