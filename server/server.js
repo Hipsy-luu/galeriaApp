@@ -20,12 +20,22 @@ mongoose.connect("mongodb://localhost:27017/galeria"/*, { autoIndex: false }*/).
     err => { logger.error('Error when connecting to the database' + err) }
 );
 
-app.use(cors())
+app.use(cors({
+    credentials: true,
+  }));
 app.use(bodyParser.urlencoded({ extended: false }));
 //Le indicamos que las respuestas se deben de mandar en formato JSON
 app.use(bodyParser.json());
 //Se habilitan las CORS para que no existan errores de cominicacion 
 app.use(cors());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
+
 
 var port = process.env.PORT || 4000 ;
 
