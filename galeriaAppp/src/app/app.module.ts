@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 //Componente para la Busqueda y seleccion de elementos
 import { IonicSelectableModule } from 'ionic-selectable';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,7 +21,8 @@ import { IonicSelectableModule } from 'ionic-selectable';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    IonicSelectableModule
+    IonicSelectableModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,

@@ -69,7 +69,7 @@ function destoy(req, res) {
     let id = req.params.id;
     const filter = { artistid: id };
     const update = { deleted: true };
-    Model.findOneAndUpdate(filter, update, (err, doc) => {
+    Model.findOneAndDelete(filter, update, (err, doc) => {
         if (doc) {
             const message = 'Succesfully deleted';
             console.log(message);

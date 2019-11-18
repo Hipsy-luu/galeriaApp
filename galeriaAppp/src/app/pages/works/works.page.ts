@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectionAppiService } from '../../services/connection-appi.service';
 import { IonicSelectableComponent } from 'ionic-selectable';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-works',
@@ -10,17 +11,21 @@ import { IonicSelectableComponent } from 'ionic-selectable';
 export class WorksPage implements OnInit {
   selectedAutor;
 
-  constructor(public connectionService :ConnectionAppiService) { }
+  constructor(public connectionService :ConnectionAppiService,public alertController: AlertController) { }
 
   ngOnInit() {
     this.connectionService.initializeSelectedItems(2);
   }
 
+  actualizaritems(){
+    this.connectionService.getAllWorks().then(async()=>{});
+  }
+
   onSelected(work){
     this.connectionService.actualSelectedWork = work;
     this.connectionService.opc = 1;
-    let index = this.connectionService.dumyData.artists.findIndex((element) => element.artistid == work.artistid);
-    this.selectedAutor = this.connectionService.dumyData.artists[index];
+    let index = this.connectionService.artists.findIndex((element) => element.artistid == work.artistid);
+    this.selectedAutor = this.connectionService.artists[index];
   }
 
   resetData(){
@@ -34,5 +39,61 @@ export class WorksPage implements OnInit {
   }) {
     this.connectionService.actualSelectedWork.artistid = event.value.artistid;
   }
+  
+  saveWork(){
+    if(this.connectionService.opc==0){
+      this.createWork();
+    }else{
+      this.updateWork();
+    }
+  }
 
+  async createWork(){
+    this.connectionService.createWork().then(async ()=>{
+      this.connectionService.initializeSelectedItems(2);
+
+      this.connectionService.getAllWorks().then(async()=>{
+        const alert = await this.alertController.create({
+          subHeader: 'Guardado Exitoso',
+          message: 'Se a registrado una nueva obra.',
+          buttons: ['OK']
+        });
+    
+        await alert.present();
+      })
+    });
+  }
+
+  async deleteWork(){
+    this.connectionService.deleteWork().then(async ()=>{
+      this.connectionService.initializeSelectedItems(2);
+
+      this.connectionService.getAllWorks().then(async()=>{
+        const alert = await this.alertController.create({
+          subHeader: 'Borrado Exitoso',
+          message: 'Se a borrado una obra.',
+          buttons: ['OK']
+        });
+    
+        await alert.present();
+      })
+    });
+  }
+
+  async updateWork(){
+    this.connectionService.updateWork().then(async ()=>{
+      
+    });
+    this.connectionService.initializeSelectedItems(2);
+
+    this.connectionService.getAllWorks().then(async()=>{
+      const alert = await this.alertController.create({
+        subHeader: 'Actualizado Exitoso',
+        message: 'Se a actualizado una obra.',
+        buttons: ['OK']
+      });
+  
+      await alert.present();
+    })
+  }
 }

@@ -7,8 +7,9 @@ export class Transaction {
   salesprice:Number;
   customerid:Number;
   workid:Number;
+  deleted:Boolean;
 
-  constructor(transactionid,dateacquired,acquisitionprice,askingprice,datesold,salesprice,customerid,workid){
+  constructor(transactionid,dateacquired,acquisitionprice,askingprice,datesold,salesprice,customerid,workid,deleted){
     this.transactionid =  transactionid;
     this.dateacquired =  dateacquired;
     this.acquisitionprice = acquisitionprice;
@@ -17,5 +18,6 @@ export class Transaction {
     this.salesprice = salesprice;
     this.customerid = customerid;
     this.workid = workid;
+    this.deleted = deleted;
   }
 }

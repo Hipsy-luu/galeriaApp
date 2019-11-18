@@ -25,7 +25,7 @@
                 <ion-col>Id Comprador</ion-col>
                 <ion-col>Id Obra</ion-col>
               </ion-row>
-              <ion-row *ngFor="let transaction of connectionService.dumyData.trans">
+              <ion-row *ngFor="let transaction of connectionService.trans">
                 <ion-col>{{transaction.transactionid}}</ion-col>
                 <ion-col>{{transaction.dateacquired}}</ion-col>
                 <ion-col>{{transaction.acquisitionprice}}</ion-col>

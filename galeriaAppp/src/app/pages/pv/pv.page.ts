@@ -20,31 +20,35 @@ export class PvPage implements OnInit {
   }
 
   async createTrans(){
-    this.connectionService.dumyData.trans.push(this.connectionService.actualTrans);
-    this.connectionService.initializeSelectedItems(3);
+    this.connectionService.createTransaction().then(async ()=>{
+      this.connectionService.initializeSelectedItems(3);
 
-    const alert = await this.alertController.create({
-      subHeader: 'Guardado Exitoso',
-      message: 'Se a registrado una nueva venta.Felicidades!',
-      buttons: ['OK']
+      this.connectionService.getAllTransactions().then(async()=>{
+        const alert = await this.alertController.create({
+          subHeader: 'Guardado Exitoso',
+          message: 'Se a registrado una nueva venta.Felicidades!',
+          buttons: ['OK']
+        });
+    
+        await alert.present();
+      })
     });
-
-    await alert.present();
   }
 
   onSelected(work){
     this.connectionService.actualSelectedWork = work;
     this.connectionService.opc = 1;
-    let index = this.connectionService.dumyData.works.findIndex((element) => element.workid == work.workid);
-    this.selectedWork = this.connectionService.dumyData.works[index];
+    let index = this.connectionService.works.findIndex((element) => element.workid == work.workid);
+    this.selectedWork = this.connectionService.works[index];
 
-    index = this.connectionService.dumyData.customers.findIndex((element) => element.customerid == work.customerid);
-    this.selectedCustomer = this.connectionService.dumyData.customers[index];
+    index = this.connectionService.customers.findIndex((element) => element.customerid == work.customerid);
+    this.selectedCustomer = this.connectionService.customers[index];
   }
 
   resetData(){
-    this.selectedWork = {}
-    this.connectionService.initializeSelectedItems(2)
+    this.selectedWork = {};
+    this.selectedCustomer = {};
+    this.connectionService.initializeSelectedItems(3)
   }
 
   workChange(event: {

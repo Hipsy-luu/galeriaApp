@@ -56,20 +56,20 @@ function list(req, res) {
     });
 }
 
-function update(req, res) {
+async function update(req, res) {
     let id = req.params.id;
     const filter = { customerid: id };
     const update = { $set: req.body };
-    Model.findOneAndUpdate(filter, update)
-        .then(res.status(200).send('Updated'))
-        .catch(res.status(404).send('Not updated'));
+    await Model.findOneAndUpdate(filter, update).exec(()=>{
+        res.status(200).send('Updated');
+    })
 }
 
 function destoy(req, res) {
     let id = req.params.id;
     const filter = { customerid: id };
     const update = { deleted: true };
-    Model.findOneAndUpdate(filter, update, (err, doc) => {
+    Model.findOneAndDelete(filter, update, (err, doc) => {
         if (doc) {
             const message = 'Succesfully deleted';
             console.log(message);

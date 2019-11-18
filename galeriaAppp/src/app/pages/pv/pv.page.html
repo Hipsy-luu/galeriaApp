@@ -60,7 +60,7 @@
                     <ionic-selectable
                       placeholder="Seleccione un Cliente"
                       [(ngModel)]="selectedCustomer"
-                      [items]="connectionService.dumyData.customers"
+                      [items]="connectionService.customers"
                       itemValueField="customerid"
                       itemTextField="firstname"
                       [canSearch]="true"
@@ -75,7 +75,7 @@
                     <ionic-selectable
                       placeholder="Seleccione una Obra"
                       [(ngModel)]="selectedWork"
-                      [items]="connectionService.dumyData.works"
+                      [items]="connectionService.works"
                       itemValueField="workid"
                       itemTextField="title"
                       [canSearch]="true"
@@ -98,12 +98,7 @@
                     Guardar
                   </ion-button>
                 </ion-col>
-                <ion-col *ngIf="connectionService.opc.toString()=='1'"  size="4">
-                  <ion-button>
-                    Eliminar
-                  </ion-button>
-                </ion-col>
-                <ion-col *ngIf="connectionService.opc.toString()=='1'"  size="4">
+                <ion-col size="4">
                   <ion-button (click)="resetData()" >
                     Cancelar
                   </ion-button>

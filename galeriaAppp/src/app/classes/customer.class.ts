@@ -11,8 +11,10 @@ export class Customer {
   country:String;
   areacode:String;
   phonenumber:String;
+  deleted:Boolean;
+  
 
-  constructor(customerid,lastname,firstname,emailaddress,encryptedpassword,street,city,state,ziporpostalcode,country,areacode,phonenumber){
+  constructor(customerid,lastname,firstname,emailaddress,encryptedpassword,street,city,state,ziporpostalcode,country,areacode,phonenumber,deleted){
     this.customerid =  customerid;
     this.lastname =  lastname;
     this.firstname = firstname;
@@ -25,5 +27,6 @@ export class Customer {
     this.country = country;
     this.areacode = areacode;
     this.phonenumber = phonenumber;
+    this.deleted = deleted;
   }
 }

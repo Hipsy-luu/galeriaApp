@@ -12,5 +12,8 @@ export class HistoryTransPage implements OnInit {
 
   ngOnInit() {
     //this.connectionService.initializeSelectedItems(1);
+    this.connectionService.getAllTransactions().then(async()=>{
+      
+    })
   }
 }
